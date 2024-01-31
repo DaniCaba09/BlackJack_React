@@ -8,4 +8,21 @@
     background: fixed url(assets/img/table.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 30%;
+}
+
+#vs{
+    background: fixed url(assets/fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 20%;
+}
+
+.botonjeje{
+    border-radius: 50%;
+    height: 40vh;
+    font-size: 400%;
+    background: fixed url(assets/img/casino100.png);
+    background-size: auto;
+    background-position: 50%;
 }
