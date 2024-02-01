@@ -11,18 +11,58 @@
     border-radius: 30%;
 }
 
-#vs{
+#vs {
     background: fixed url(assets/fondo.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 20%;
 }
 
-.botonjeje{
+.botonjeje {
     border-radius: 50%;
     height: 40vh;
     font-size: 400%;
     background: fixed url(assets/img/casino100.png);
     background-size: auto;
     background-position: 50%;
+}
+
+.botonjeje:hover {
+    animation: rotacion 1s ease-in-out;
+}
+
+.cartas:hover {
+    animation: rotacion2 0.5s ease-in-out;
+}
+
+@keyframes rotacion {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg);
+    }
+}
+
+@keyframes rotacion2 {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.suma {
+    text-shadow: 1px 1px 1px white;
+}
+
+.brillo {
+    filter: brightness(0);
+}
+
+.usuarioredondo{
+    border-radius: 50%;
 }
