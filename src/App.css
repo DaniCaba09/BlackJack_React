@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: old;
+    src: url(../public/Radhesty-9YLA7.otf);
+}
+
+body{
+    font-family: old;
+    text-shadow: 3px 3px 5px rgb(0, 0, 0);
+    letter-spacing: 2px;
+}
+
 #contenedorPrincipal {
     height: 700px;
     width: 800px;
@@ -30,6 +41,11 @@
     background-position: 50%;
 }
 
+button{
+    text-shadow: 3px 3px 5px rgb(0, 0, 0);
+    letter-spacing: 1px;
+}
+
 .botonjeje:hover {
     animation: rotacion 1s ease-in-out;
 }
@@ -44,7 +60,7 @@
     }
 
     100% {
-        transform: rotateX(360deg);
+        transform: rotateX(720deg);
     }
 }
 
@@ -59,7 +75,6 @@
 }
 
 .suma {
-    text-shadow: 1px 1px 1px white;
 }
 
 .brillo {
@@ -78,14 +93,24 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
+    transition: all 2s;
+    font-family: old;
+    
+}
+
+.oldmoney{
+    text-shadow: 3PX 3PX 3PX rgb(0, 0, 0);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 20% auto;
-    padding: 20px;
+    background: fixed url(assets/fondo.jpg);
+    background-size: cover;
+    background-position: 80%;
+    margin: 15% auto;
+    padding: 1%;
     border: 1px solid #888;
-    width: 80%;
+    width: 60%;
+    border-radius: 10px;
 }
 
 .close {

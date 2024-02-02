@@ -5,9 +5,11 @@ import usuario from '../assets/usuario.png'
 import Cartas from './Cartas'
 import Modales from './Modales'
 
-function Tablero() {
+function Tablero({ }) {
 
   const [botonNuevaRonda, setbotonNuevaRonda] = useState(false)
+
+
   const nuevaRonda = () => {
 
     setTurnoCrupier(false)
@@ -26,7 +28,7 @@ function Tablero() {
     setShowModal(false);
   };
 
-
+  const  [mensaje, setMensaje] = useState("")
 
   const [turnoCrupier, setTurnoCrupier] = useState(false)
   const numeroAleatorio = () => {
@@ -59,17 +61,28 @@ function Tablero() {
     }
 
     if (turnoCrupier && sumarCartas(cartasCrupier) > sumarCartas(cartasUsuario) && sumarCartas(cartasCrupier) <= 21) {
-      alert("TE GANO EL CRUPIER")
-      setShowModal(true)
+      setMensaje("Has perdido")
+      setTimeout(() => {
+        setShowModal(true)
+      }, 1000)
     }
     else if (sumarCartas(cartasCrupier) < sumarCartas(cartasUsuario) && sumarCartas(cartasUsuario) <= 21) {
-      console.log("GANASTE AL CRUPIER")
+      setMensaje("Has ganado")
+      setTimeout(() => {
+        setShowModal(true)
+      }, 1000)
     }
     else if (sumarCartas(cartasCrupier) == sumarCartas(cartasUsuario)) {
-      console.log("EMPATE")
+      setMensaje("Empataste")
+      setTimeout(() => {
+        setShowModal(true)
+      }, 1000)
     }
     else if (sumarCartas(cartasCrupier) > 21) {
-      console.log("GANASTE EL CUPRIER SE PASO")
+      setMensaje("Has ganado, el crupier se paso.")
+      setTimeout(() => {
+        setShowModal(true)
+      }, 1000)
 
     }
 
@@ -79,11 +92,16 @@ function Tablero() {
   useEffect(() => {
 
     if (sumarCartas(cartasUsuario) > 21) {
-      console.log("Perdiste te pasaste de 21")
+      setMensaje("Has perdido, te pasaste de 21")
+      setTimeout(() => {
+        setShowModal(true)
+      }, 1000)
     }
     else if (sumarCartas(cartasUsuario) == 21) {
-      console.log("BLACKJACK")
-      setTurnoCrupier(true);
+      setMensaje("Has ganado, BLACKJACK!")
+      setTimeout(() => {
+        setShowModal(true)
+      }, 1000)
     }
 
     if (sumarCartas(cartasUsuario) >= 21) {
@@ -126,7 +144,7 @@ function Tablero() {
     <>
 
       <div className='flex items-center justify-center min-w-full min-h-screen '>
-        <div id='contenedorPrincipal' className='flex flex-wrap items-center justify-center text-center text-white rounded-md' >
+        <div id='contenedorPrincipal' className='flex flex-wrap items-center justify-center text-center text-white rounded-md h-[17.97%]' >
           <div id='crupier' className='flex w-full h-1/3'>
             <img src={crupier} className='h-full '></img>
             <div id='cartasCrupier' className='flex items-center justify-center w-full'>
@@ -168,7 +186,7 @@ function Tablero() {
               }
             </div>
             <div className='flex justify-end w-full '>
-              <img src={usuario} width={220} height={350} className=' me-10 usuarioredondo'></img>
+              <img src={usuario} width={230} height={330} className=' me-10 usuarioredondo'></img>
             </div>
           </div>
 
@@ -179,8 +197,8 @@ function Tablero() {
             }
 
             <button onClick={plantarse} className='w-40 h-10 m-5 duration-300 bg-yellow-300 border-2 rounded-md bg-dark hover:bg-yellow-600'>Plantarse</button>
-            <Modales showModal={showModal} closeModal={closeModal}></Modales>
-            {botonNuevaRonda && <button onClick={nuevaRonda} className='w-40 h-10 m-5 text-white transition-colors duration-300 bg-green-700 border-2 rounded-md hover:bg-slate-300'>+ Nueva Ronda +</button>}
+            <Modales nuevaRonda={nuevaRonda} showModal={showModal} closeModal={closeModal} mensaje={mensaje}></Modales>
+            
           </div>
         </div>
       </div >
