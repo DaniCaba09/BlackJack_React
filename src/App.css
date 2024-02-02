@@ -44,6 +44,7 @@ body{
 button{
     text-shadow: 3px 3px 5px rgb(0, 0, 0);
     letter-spacing: 1px;
+   
 }
 
 .botonjeje:hover {
@@ -100,6 +101,7 @@ button{
 
 .oldmoney{
     text-shadow: 3PX 3PX 3PX rgb(0, 0, 0);
+    font-size: xx-large;
 }
 
 .modal-content {
