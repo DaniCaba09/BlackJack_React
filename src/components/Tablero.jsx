@@ -3,6 +3,7 @@ import '../App.css'
 import crupier from '../assets/crupier.png'
 import usuario from '../assets/usuario.png'
 import Cartas from './Cartas'
+import Modales from './Modales'
 
 function Tablero() {
 
@@ -16,7 +17,14 @@ function Tablero() {
 
     setDeshabilitar(false);
     setbotonNuevaRonda(false)
+    setShowModal(false);
   }
+
+  const [showModal, setShowModal] = useState(false);
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
 
 
@@ -50,8 +58,9 @@ function Tablero() {
       plantarse()
     }
 
-    if (sumarCartas(cartasCrupier) > sumarCartas(cartasUsuario) && sumarCartas(cartasCrupier) <= 21) {
-      console.log("TE GANO EL CRUPIER")
+    if (turnoCrupier && sumarCartas(cartasCrupier) > sumarCartas(cartasUsuario) && sumarCartas(cartasCrupier) <= 21) {
+      alert("TE GANO EL CRUPIER")
+      setShowModal(true)
     }
     else if (sumarCartas(cartasCrupier) < sumarCartas(cartasUsuario) && sumarCartas(cartasUsuario) <= 21) {
       console.log("GANASTE AL CRUPIER")
@@ -93,7 +102,6 @@ function Tablero() {
     const carta = Cartas[numeroAleatorio()]
 
     setCartasUsuario([...cartasUsuario, carta])
-
 
   }
 
@@ -171,6 +179,7 @@ function Tablero() {
             }
 
             <button onClick={plantarse} className='w-40 h-10 m-5 duration-300 bg-yellow-300 border-2 rounded-md bg-dark hover:bg-yellow-600'>Plantarse</button>
+            <Modales showModal={showModal} closeModal={closeModal}></Modales>
             {botonNuevaRonda && <button onClick={nuevaRonda} className='w-40 h-10 m-5 text-white transition-colors duration-300 bg-green-700 border-2 rounded-md hover:bg-slate-300'>+ Nueva Ronda +</button>}
           </div>
         </div>
