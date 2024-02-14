@@ -39,7 +39,7 @@ function App() {
             <div id='contenedorPrincipal' className='flex justify-center text-center text-white border-2 rounded-md' >
               <div className='flex items-center justify-center'>
                 {handleClick && (
-                  <button onClick={funcionBoton} className='h-20 font-extrabold text-white duration-700 rounded-md mb-[15%] botonjeje w-96 hover:bg-gray-900'></button>
+                  <button onClick={funcionBoton} className=' font-extrabold text-white duration-700 rounded-md mb-[-10%] botonjeje w-96 hover:bg-gray-900'></button>
                 )}
               </div>
             </div>
